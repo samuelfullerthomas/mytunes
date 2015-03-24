@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <body>
+  <head>
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
+    <link href="style.css" rel="stylesheet">
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
@@ -19,10 +20,16 @@
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
+    <script src="views/CurrentSongView.js"></script>
     <script src="views/AppView.js"></script>
-
+  </head>
+    
+  <body>
+    <div id="main">
+        <h1>AaliyahTunes</h1>
+    </div>
     <script>
-      $(function(){
+        $(function(){
         // set up model objects
         var library = new Songs(songData);
         var app = new AppModel({library: library});
@@ -31,8 +38,8 @@
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
-      });
+        $('#main').append(appView.render());
+        });
     </script>
   </body>
 </html>
